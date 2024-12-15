@@ -22,3 +22,7 @@ pluginManagement {
         id("com.diffplug.spotless") version spotless
     }
 }
+include("hw02-collections")
+include("hw03-custom-junit")
+include("hw04-gc")
+include("hw05-ClassLogger")
