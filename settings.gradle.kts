@@ -7,6 +7,8 @@ include("hw05-ClassLogger")
 include("hw06-OOP")
 include("hw08-serialize")
 include("hw09-jdbc")
+include("hw10-jpql")
+include("hw11-cache")
 
 pluginManagement {
     val jgitver: String by settings
