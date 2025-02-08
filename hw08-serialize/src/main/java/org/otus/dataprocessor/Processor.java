@@ -1,9 +1,8 @@
 package org.otus.dataprocessor;
 
-import org.otus.model.Measurement;
-
 import java.util.List;
 import java.util.Map;
+import org.otus.model.Measurement;
 
 public interface Processor {
 

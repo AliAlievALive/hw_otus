@@ -1,16 +1,15 @@
 package org.otus.domain;
 
-import org.otus.interfaces.GiveMoney;
-import org.otus.interfaces.PutMoney;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+import org.otus.interfaces.GiveMoney;
+import org.otus.interfaces.PutMoney;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Atm implements GiveMoney, PutMoney {
     private static final Logger logger = LoggerFactory.getLogger(Atm.class);
@@ -33,7 +32,8 @@ public class Atm implements GiveMoney, PutMoney {
         }
 
         List<BanknoteBox> sortedBoxes = banknotes.stream()
-                .sorted((b1, b2) -> Integer.compare(b2.getAmount().getValue(), b1.getAmount().getValue()))
+                .sorted((b1, b2) -> Integer.compare(
+                        b2.getAmount().getValue(), b1.getAmount().getValue()))
                 .toList();
 
         Map<Nominal, Integer> withdrawalMap = new LinkedHashMap<>();
@@ -58,22 +58,21 @@ public class Atm implements GiveMoney, PutMoney {
         if (remainingAmount > 0) {
             throw new IllegalStateException("Невозможно выдать запрашиваемую сумму с текущими номиналами");
         }
-        withdrawalMap.forEach((nominal, count) ->
-                logger.info("Выдано {} банкнот номиналом {}", count, nominal.getValue()));
+        withdrawalMap.forEach(
+                (nominal, count) -> logger.info("Выдано {} банкнот номиналом {}", count, nominal.getValue()));
         return withdrawalMap;
     }
 
     @Override
     public void putMoney(List<Nominal> nominals) {
         logger.info("Пополняем банкомат");
-        Map<Nominal, Long> nominalCountMap = nominals.stream()
-                .collect(Collectors.groupingBy(nominal -> nominal, Collectors.counting()));
+        Map<Nominal, Long> nominalCountMap =
+                nominals.stream().collect(Collectors.groupingBy(nominal -> nominal, Collectors.counting()));
 
-        nominalCountMap.forEach((nominal, count) ->
-                banknotes.stream()
-                        .filter(box -> box.getAmount() == nominal)
-                        .findFirst()
-                        .ifPresent(box -> box.put(count.intValue())));
+        nominalCountMap.forEach((nominal, count) -> banknotes.stream()
+                .filter(box -> box.getAmount() == nominal)
+                .findFirst()
+                .ifPresent(box -> box.put(count.intValue())));
     }
 
     public int getBalance() {

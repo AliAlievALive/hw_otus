@@ -1,13 +1,12 @@
 package org.otus.domain;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class AtmTest {
     private static final Logger logger = LoggerFactory.getLogger(AtmTest.class);

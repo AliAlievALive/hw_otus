@@ -1,19 +1,19 @@
 package org.otus.service;
 
+import static org.otus.util.ReflectionHelper.callMethod;
+import static org.otus.util.ReflectionHelper.instantiate;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.List;
 import org.otus.annotations.After;
 import org.otus.annotations.Before;
 import org.otus.annotations.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.List;
-
-import static org.otus.util.ReflectionHelper.callMethod;
-import static org.otus.util.ReflectionHelper.instantiate;
-
+@SuppressWarnings({"java:S112", "java:S1141"})
 public class TestRunner {
     private static final Logger log = LoggerFactory.getLogger(TestRunner.class);
 
@@ -43,7 +43,9 @@ public class TestRunner {
                     callMethod(testInstance, testMethod.getName());
                     passed++;
                 } catch (Exception e) {
-                    log.error(String.format("Test %s failed: %s", testMethod.getName(), e.getCause().getCause()));
+                    log.error(String.format(
+                            "Test %s failed: %s",
+                            testMethod.getName(), e.getCause().getCause()));
                     failed++;
                 } finally {
                     afterMethods(afterMethods, testInstance);

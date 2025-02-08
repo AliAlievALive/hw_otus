@@ -2,8 +2,6 @@ package org.otus.dataprocessor;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedHashMap;
@@ -22,9 +20,7 @@ public class FileSerializer implements Serializer {
     public void serialize(Map<String, Double> data) throws IOException {
         var file = new File(fileName);
         Map<String, Double> sortedData = new LinkedHashMap<>();
-        data.keySet().stream()
-                .sorted()
-                .forEach(key -> sortedData.put(key, data.get(key)));
+        data.keySet().stream().sorted().forEach(key -> sortedData.put(key, data.get(key)));
         mapper.writeValue(file, sortedData);
     }
 }

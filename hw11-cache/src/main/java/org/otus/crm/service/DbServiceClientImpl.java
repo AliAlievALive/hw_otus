@@ -1,5 +1,7 @@
 package org.otus.crm.service;
 
+import java.util.List;
+import java.util.Optional;
 import org.otus.cache.HwCache;
 import org.otus.cache.MyCache;
 import org.otus.core.repository.DataTemplate;
@@ -7,9 +9,6 @@ import org.otus.core.sessionmanager.TransactionManager;
 import org.otus.crm.model.Client;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.List;
-import java.util.Optional;
 
 public class DbServiceClientImpl implements DBServiceClient {
     private static final Logger log = LoggerFactory.getLogger(DbServiceClientImpl.class);

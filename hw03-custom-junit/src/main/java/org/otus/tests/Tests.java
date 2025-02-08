@@ -6,6 +6,7 @@ import org.otus.annotations.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@SuppressWarnings("java:S112")
 public class Tests {
 
     private static final Logger log = LoggerFactory.getLogger(Tests.class);
