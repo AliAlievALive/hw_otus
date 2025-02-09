@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Phone {
+public class Phone implements Cloneable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -25,5 +25,11 @@ public class Phone {
     public Phone(Integer id, String number) {
         this.id = id;
         this.number = number;
+    }
+
+    @Override
+    @SuppressWarnings({"java:S2975", "java:S1182"})
+    public Phone clone() {
+        return new Phone(this.id, this.number, this.client);
     }
 }

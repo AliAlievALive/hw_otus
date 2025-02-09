@@ -49,31 +49,14 @@ public class Client implements Cloneable {
     public Client(Long id, String name, Address address, List<Phone> phones) {
         this(id, name);
         this.address = address;
-
-        this.phones = phones != null ? new ArrayList<>(phones) : new ArrayList<>();
-        for (Phone phone : this.phones) {
-            phone.setClient(this);
-        }
+        this.phones = phones;
     }
 
     @Override
     @SuppressWarnings({"java:S2975", "java:S1182"})
     public Client clone() {
-        Client clonedClient = new Client(this.id, this.name);
-
-        if (this.address != null) {
-            clonedClient.address = new Address(this.address.getId(), this.address.getStreet());
-        }
-
-        if (this.phones != null) {
-            clonedClient.phones = this.phones.stream()
-                    .map(phone -> new Phone(phone.getId(), phone.getNumber(), clonedClient))
-                    .toList();
-        } else {
-            clonedClient.phones = new ArrayList<>();
-        }
-
-        return clonedClient;
+        var phoneListCloned = this.phones.stream().map(Phone::clone).toList();
+        return new Client(this.id, this.name, this.address.clone(), phoneListCloned);
     }
 
     @Override
