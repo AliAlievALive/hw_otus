@@ -56,7 +56,7 @@ public class Client implements Cloneable {
     @SuppressWarnings({"java:S2975", "java:S1182"})
     public Client clone() {
         var phoneListCloned = this.phones.stream().map(Phone::clone).toList();
-        return new Client(this.id, this.name, this.address.clone(), phoneListCloned);
+        return new Client(this.id, this.name, this.address == null ? null : this.address.clone(), phoneListCloned);
     }
 
     @Override
