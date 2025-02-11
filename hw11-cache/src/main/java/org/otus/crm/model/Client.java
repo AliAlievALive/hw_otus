@@ -48,15 +48,18 @@ public class Client implements Cloneable {
 
     public Client(Long id, String name, Address address, List<Phone> phones) {
         this(id, name);
+
         this.address = address;
-        this.phones = phones;
+        this.phones = phones != null ? new ArrayList<>(phones) : new ArrayList<>();
+        for (Phone phone : this.phones) {
+            phone.setClient(this);
+        }
     }
 
     @Override
     @SuppressWarnings({"java:S2975", "java:S1182"})
     public Client clone() {
-        var phoneListCloned = this.phones.stream().map(Phone::clone).toList();
-        return new Client(this.id, this.name, this.address == null ? null : this.address.clone(), phoneListCloned);
+        return new Client(this.id, this.name, this.address, this.phones);
     }
 
     @Override
