@@ -1,4 +1,4 @@
-rootProject.name = "gradle"
+rootProject.name = "hw-otus"
 include("hw01-gradle")
 include("hw02-collections")
 include("hw03-custom-junit")
@@ -6,8 +6,7 @@ include("hw04-gc")
 include("hw05-ClassLogger")
 include("hw06-OOP")
 include("hw08-serialize")
-include("hw09-jdbc")
-include("hw10-jpql")
+include("hw10-hibernate")
 include("hw11-cache")
 
 pluginManagement {
