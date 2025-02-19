@@ -46,6 +46,7 @@ public class Client implements Cloneable {
         this.name = name;
     }
 
+    @SuppressWarnings({"java:S2975"})
     public Client(Long id, String name, Address address, List<Phone> phones) {
         this(id, name);
 
