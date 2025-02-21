@@ -1,0 +1,37 @@
+﻿<#assign title="Login">
+<#include "components/head.html">
+<body class="xp grid place-items-center p-8 h-screen">
+<div class="flex gap-10">
+    <div class="window">
+        <div class="title-bar">
+            <div class="title-bar-text">Admin - Login</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <form action="/login" method="post">
+                <img src="img/login.png">
+                <fieldset>
+                    <legend>Enter</legend>
+                    <div class="field-row-stacked" style="width: 200px">
+                        <label for="login">Login</label>
+                        <input name="login" id="login" type="text" value="account1" required/>
+                    </div>
+                    <div class="field-row-stacked" style="width: 200px">
+                        <label for="password">Password</label>
+                        <input name="password" id="password" type="password" value="11111" required/>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="submit" class="mt-4">Log in</button>
+                    </div>
+                </fieldset>
+            </form>
+            <#include "components/error-alert.html">
+        </div>
+    </div>
+</div>
+</body>
+<#include "components/footer.html">
