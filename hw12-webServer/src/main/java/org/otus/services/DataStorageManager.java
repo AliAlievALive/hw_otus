@@ -6,6 +6,7 @@ import org.otus.core.repository.DataTemplateHibernate;
 import org.otus.core.repository.HibernateUtils;
 import org.otus.core.sessionmanager.TransactionManagerHibernate;
 import org.otus.crm.dbmigrations.MigrationsExecutorFlyway;
+import org.otus.crm.model.Account;
 import org.otus.crm.model.Address;
 import org.otus.crm.model.Client;
 import org.otus.crm.model.Phone;
@@ -13,15 +14,14 @@ import org.otus.crm.service.DBAccountService;
 import org.otus.crm.service.DBClientService;
 import org.otus.crm.service.DbAccountServiceImpl;
 import org.otus.crm.service.DbClientServiceImpl;
-import org.otus.model.Account;
 
 @Getter
-public class DBManager {
+public class DataStorageManager {
     public static final String HIBERNATE_CFG_FILE = "hibernate.cfg.xml";
     private final DBClientService dbClientService;
     private final DBAccountService dbAccountService;
 
-    public DBManager() {
+    public DataStorageManager() {
         var configuration = new Configuration().configure(HIBERNATE_CFG_FILE);
 
         var dbUrl = configuration.getProperty("hibernate.connection.url");

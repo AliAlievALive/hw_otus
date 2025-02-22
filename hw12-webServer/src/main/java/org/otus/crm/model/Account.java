@@ -1,4 +1,4 @@
-package org.otus.model;
+package org.otus.crm.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

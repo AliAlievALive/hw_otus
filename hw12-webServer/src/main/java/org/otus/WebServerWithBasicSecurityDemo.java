@@ -22,7 +22,7 @@ public class WebServerWithBasicSecurityDemo {
 
     public static void main(String[] args) throws Exception {
         TemplateProcessor templateProcessor = new TemplateProcessorImpl(TEMPLATES_DIR);
-        var databaseManager = new DBManager();
+        var databaseManager = new DataStorageManager();
         DBClientService dbClientService = databaseManager.getDbClientService();
         DBAccountService dbAccountService = databaseManager.getDbAccountService();
         UserAuthService authService = new UserAuthServiceImpl(dbAccountService);

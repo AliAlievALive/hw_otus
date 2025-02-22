@@ -2,7 +2,7 @@ package org.otus.crm.service;
 
 import org.otus.core.repository.DataTemplate;
 import org.otus.core.sessionmanager.TransactionManager;
-import org.otus.model.Account;
+import org.otus.crm.model.Account;
 
 public class DbAccountServiceImpl implements DBAccountService {
     private final DataTemplate<Account> accountDataTemplate;
