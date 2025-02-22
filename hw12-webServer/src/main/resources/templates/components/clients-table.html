@@ -1,0 +1,28 @@
+<#if clients?size gt 0>
+    <table class="table-auto border-separate border-spacing-2 border border-gray-400 dark:border-gray-500">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <#list clients as client>
+            <tr>
+                <td>${client.id}</td>
+                <td>${client.name}</td>
+                <td>${client.address.street}</td>
+                <td>
+                    <#list client.phones as phone>
+                        ${phone.number}<#if phone_has_next><br/> </#if>
+                    </#list>
+                </td>
+            </tr>
+        </#list>
+        </tbody>
+    </table>
+<#else>
+    <p>No clients found.</p>
+</#if>

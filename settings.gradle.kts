@@ -8,6 +8,7 @@ include("hw06-OOP")
 include("hw08-serialize")
 include("hw10-hibernate")
 include("hw11-cache")
+include("hw12-webServer")
 
 pluginManagement {
     val jgitver: String by settings
