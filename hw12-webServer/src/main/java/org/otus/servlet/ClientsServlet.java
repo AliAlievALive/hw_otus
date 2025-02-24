@@ -15,7 +15,6 @@ import org.otus.services.TemplateProcessor;
 @SuppressWarnings({"java:S1989"})
 public class ClientsServlet extends HttpServlet {
 
-    private static final String LOGIN_PAGE_TEMPLATE = "login.html";
     private static final String PAGE_TEMPLATE = "clients.html";
     private final transient DBClientService service;
     private final transient TemplateProcessor templateProcessor;
