@@ -1,8 +1,7 @@
 package org.otus.api.model;
 
-import lombok.Getter;
-
 import java.time.LocalDateTime;
+import lombok.Getter;
 
 @Getter
 public class SensorData {

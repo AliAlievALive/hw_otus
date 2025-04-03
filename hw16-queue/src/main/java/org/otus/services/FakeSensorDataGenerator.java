@@ -1,16 +1,15 @@
 package org.otus.services;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.otus.api.SensorsDataServer;
-import org.otus.api.model.SensorData;
-
 import java.time.LocalDateTime;
 import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.random.RandomGenerator;
+import org.otus.api.SensorsDataServer;
+import org.otus.api.model.SensorData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class FakeSensorDataGenerator {
     private static final Logger log = LoggerFactory.getLogger(FakeSensorDataGenerator.class);

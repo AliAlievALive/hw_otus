@@ -1,11 +1,10 @@
 package org.otus.lib;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.otus.api.model.SensorData;
-
 import java.util.List;
 import java.util.stream.Collectors;
+import org.otus.api.model.SensorData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SensorDataBufferedWriterFake implements SensorDataBufferedWriter {
     private static final Logger log = LoggerFactory.getLogger(SensorDataBufferedWriterFake.class);

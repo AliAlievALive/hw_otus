@@ -1,5 +1,6 @@
 package org.otus;
 
+import java.util.concurrent.TimeUnit;
 import org.otus.lib.SensorDataBufferedWriterFake;
 import org.otus.services.FakeSensorDataGenerator;
 import org.otus.services.SensorDataProcessingFlowImpl;
@@ -9,8 +10,6 @@ import org.otus.services.processors.SensorDataProcessorBuffered;
 import org.otus.services.processors.SensorDataProcessorCommon;
 import org.otus.services.processors.SensorDataProcessorErrors;
 import org.otus.services.processors.SensorDataProcessorRoom;
-
-import java.util.concurrent.TimeUnit;
 
 public class Main {
     private static final String ALL_ROOMS_BINDING = "*";

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-03-03T17:44:40+0300",
+    date = "2025-04-03T20:16:16+0300",
     comments = "version: 1.6.3, compiler: javac, environment: Java 21.0.6 (Oracle Corporation)"
 )
 @Component
@@ -19,22 +19,6 @@ public class ClientMapperImpl implements ClientMapper {
 
     @Autowired
     private PhoneMapper phoneMapper;
-
-    @Override
-    public ClientDto toClientDto(Client client) {
-        if ( client == null ) {
-            return null;
-        }
-
-        ClientDto.ClientDtoBuilder clientDto = ClientDto.builder();
-
-        clientDto.id( client.getId() );
-        clientDto.name( client.getName() );
-        clientDto.address( map( client.getAddress() ) );
-        clientDto.phones( phoneMapper.map( client.getPhones() ) );
-
-        return clientDto.build();
-    }
 
     @Override
     public Client toClient(ClientDto client) {

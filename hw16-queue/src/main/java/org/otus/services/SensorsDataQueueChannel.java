@@ -1,13 +1,12 @@
 package org.otus.services;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.otus.api.SensorsDataChannel;
-import org.otus.api.model.SensorData;
-
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
+import org.otus.api.SensorsDataChannel;
+import org.otus.api.model.SensorData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SensorsDataQueueChannel implements SensorsDataChannel {
     private static final Logger log = LoggerFactory.getLogger(SensorsDataQueueChannel.class);

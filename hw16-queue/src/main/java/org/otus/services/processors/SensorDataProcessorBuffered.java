@@ -1,16 +1,15 @@
 package org.otus.services.processors;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.otus.api.SensorDataProcessor;
-import org.otus.api.model.SensorData;
-import org.otus.lib.SensorDataBufferedWriter;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.PriorityBlockingQueue;
+import org.otus.api.SensorDataProcessor;
+import org.otus.api.model.SensorData;
+import org.otus.lib.SensorDataBufferedWriter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 // Этот класс нужно реализовать
 @SuppressWarnings({"java:S1068", "java:S125"})

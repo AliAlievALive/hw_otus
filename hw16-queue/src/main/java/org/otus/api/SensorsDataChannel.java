@@ -1,8 +1,7 @@
 package org.otus.api;
 
-import org.otus.api.model.SensorData;
-
 import java.util.concurrent.TimeUnit;
+import org.otus.api.model.SensorData;
 
 public interface SensorsDataChannel {
     boolean push(SensorData sensorData);
