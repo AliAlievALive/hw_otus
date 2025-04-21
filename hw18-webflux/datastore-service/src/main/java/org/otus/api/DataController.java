@@ -18,6 +18,7 @@ import reactor.core.scheduler.Scheduler;
 @RestController
 public class DataController {
     private static final Logger log = LoggerFactory.getLogger(DataController.class);
+    private static final String MAGIC_ROOM = "1408";
     private final DataStore dataStore;
     private final Scheduler workerPool;
 
@@ -28,6 +29,9 @@ public class DataController {
 
     @PostMapping(value = "/msg/{roomId}")
     public Mono<Long> messageFromChat(@PathVariable("roomId") String roomId, @RequestBody MessageDto messageDto) {
+        if (MAGIC_ROOM.equals(roomId)) {
+            throw new IllegalArgumentException("magic room");
+        }
         var messageStr = messageDto.messageStr();
 
         var msgId = Mono.just(new Message(null, roomId, messageStr))

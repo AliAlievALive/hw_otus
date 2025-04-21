@@ -3,6 +3,7 @@ let stompClient = null;
 const chatLineElementId = "chatLine";
 const roomIdElementId = "roomId";
 const messageElementId = "message";
+const magicRoom = "1408";
 
 
 const setConnected = (connected) => {
@@ -39,8 +40,10 @@ const disconnect = () => {
 
 const sendMsg = () => {
     const roomId = document.getElementById(roomIdElementId).value;
-    const message = document.getElementById(messageElementId).value;
-    stompClient.send(`/app/message.${roomId}`, {}, JSON.stringify({'messageStr': message}))
+    if (roomId !== magicRoom) {
+        const message = document.getElementById(messageElementId).value;
+        stompClient.send(`/app/message.${roomId}`, {}, JSON.stringify({'messageStr': message}))
+    }
 }
 
 const showMessage = (message) => {
